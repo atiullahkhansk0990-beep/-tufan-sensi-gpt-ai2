@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TUFAN SENSI GPT AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+background:#080b18;
+color:white;
+font-family:Arial,sans-serif;
+text-align:center;
+}
+header{
+padding:25px 10px;
+background:#10172b;
+border-bottom:2px solid #00eaff;
+box-shadow:0 0 20px #00eaff;
+}
+h1{
+color:#00eaff;
+text-shadow:0 0 15px #00eaff;
+}
+.card{
+margin:35px 15px;
+padding:25px 15px;
+background:#111a30;
+border:1px solid #00eaff;
+border-radius:18px;
+box-shadow:0 0 18px #00eaff55;
+}
+button{
+padding:14px 25px;
+border:0;
+border-radius:10px;
+background:#00eaff;
+color:#080b18;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+input{
+width:90%;
+padding:14px;
+margin:15px 0;
+border-radius:10px;
+border:1px solid #00eaff;
+background:#080b18;
+color:white;
+}
+footer{
+padding:25px;
+color:#00eaff;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>⚡ TUFAN SENSI GPT AI ⚡</h1>
+<p>NEON GAMING WORLD</p>
+</header>
+
+<div class="card">
+<h2>🔥 Welcome TUFAN 🔥</h2>
+<p>Your Gaming Assistant</p>
+<input type="text" id="name" placeholder="Enter Your Name">
+<br>
+<button onclick="welcome()">START NOW</button>
+<p id="result"></p>
+</div>
+
+<footer>
+© 2026 TUFAN SENSI GPT AI
+</footer>
+
+<script>
+function welcome(){
+let name=document.getElementById("name").value;
+document.getElementById("result").innerText=
+name ? "Welcome "+name+"! 🔥" : "Please enter your name!";
+}
+</script>
+</body>
+</html>
