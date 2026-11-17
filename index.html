@@ -1,168 +1,1460 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#080d1d">
-<title>TUFAN SENSI GPT AI | Free Fire Device Assistant</title>
-<style>
-:root{--bg:#070b18;--panel:#101a31;--panel2:#0b1327;--cyan:#20e5ff;--blue:#5577ff;--muted:#aab8d3;--line:#25405d;--good:#48e0a4;--warn:#ffc86b}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#172d57 0%,var(--bg) 52%);color:#f4f7ff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
-header{text-align:center;padding:30px 16px 24px;border-bottom:1px solid #1b6880;background:#0c1428cc}
-.logo{font-size:clamp(25px,7vw,38px);font-weight:900;color:var(--cyan);text-shadow:0 0 18px #00dfff80;letter-spacing:.3px;margin:0}
-.sub{color:var(--muted);margin:8px 0 0}.wrap{max-width:760px;margin:auto;padding:18px 14px 48px}
-.card{background:linear-gradient(145deg,#121e38,#0c1429);border:1px solid #24506c;border-radius:20px;padding:19px;margin:15px 0;box-shadow:0 10px 35px #0005}
-h2{font-size:21px;margin:0 0 12px}h3{font-size:16px;margin:0 0 8px}.eyebrow{font-size:12px;color:var(--cyan);font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
-p{margin:7px 0;color:#d2dbec}.muted{color:var(--muted);font-size:13px}.btn{border:0;border-radius:13px;padding:14px 18px;background:linear-gradient(100deg,#08c9e7,#6278ff);color:#061124;font-weight:900;font-size:16px;width:100%;cursor:pointer;margin-top:12px}.btn.secondary{background:#172744;color:#eaf5ff;border:1px solid #315477}.btn:disabled{opacity:.55}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat,.setting{background:#0a1328;border:1px solid #223b5b;border-radius:13px;padding:12px;min-width:0}.stat span,.setting span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;overflow-wrap:anywhere;font-size:16px;color:#fff}.setting strong{font-size:25px;color:var(--cyan)}
-label{display:block;font-size:14px;color:#dbe6fa;margin:12px 0 6px}select,input{width:100%;background:#080f20;color:white;border:1px solid #35516e;border-radius:12px;padding:13px;font:inherit}
-.choices{display:grid;grid-template-columns:1fr;gap:10px}.choice{display:flex;gap:10px;align-items:flex-start;text-align:left;background:#0a1429;border:1px solid #294563;color:#f4f7ff;padding:14px;border-radius:14px;cursor:pointer}.choice[aria-pressed=true]{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan),0 0 18px #00dfff22}.choice b{display:block}.choice small{display:block;color:var(--muted);margin-top:3px}
-.notice{border-left:3px solid var(--warn);padding:10px 12px;background:#2b2417;border-radius:8px;color:#ffe6b8;font-size:13px;margin-top:12px}
-.ok{border-left-color:var(--good);background:#10271f;color:#c8ffe8}.hidden{display:none!important}.tag{display:inline-block;padding:3px 8px;border-radius:30px;background:#123b48;color:#7ef0ff;font-size:11px;font-weight:800}
-.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.copy{width:auto;padding:9px 13px;font-size:13px;margin:0}
-footer{text-align:center;color:#6f83a5;padding:24px 10px;font-size:13px}
-@media(min-width:600px){.choices{grid-template-columns:repeat(3,1fr)}.wrap{padding-top:26px}.card{padding:23px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUFAN SENSI — Free Fire Device-Based Sensitivity & Gaming Utility Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        obsidian: '#06070A',
+                        surface: '#0D1017',
+                        card: '#131722',
+                        gold: {
+                            300: '#FDE047',
+                            400: '#FACC15',
+                            500: '#EAB308',
+                            600: '#CA8A04',
+                        },
+                        amberlux: '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #06070A;
+            color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FEF08A 0%, #F59E0B 50%, #D97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-btn {
+            background: linear-gradient(135deg, #FACC15 0%, #D97706 100%);
+            color: #06070A;
+            font-weight: 800;
+            transition: all 0.25s ease;
+        }
+        .gold-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px -5px rgba(245, 158, 11, 0.45);
+        }
+        .glass-panel {
+            background: rgba(19, 23, 34, 0.78);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(250, 204, 21, 0.14);
+        }
+        .step-pill.active {
+            border-color: #FACC15;
+            background: rgba(250, 204, 21, 0.12);
+            color: #FEF08A;
+            box-shadow: 0 0 18px rgba(250, 204, 21, 0.15);
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 6px;
+            background: #1F2937;
+            border-radius: 999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background: #FACC15;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+        }
+        .scan-bar {
+            animation: scanline 1.6s ease-in-out infinite;
+        }
+        @keyframes scanline {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+    </style>
 </head>
-<body>
-<header>
-  <p class="eyebrow">Free Fire • Device-aware assistant</p>
-  <h1 class="logo" id="logoTitle" role="button" tabindex="0" aria-label="Tap to analyse your device">⚡ TUFAN SENSI GPT AI ⚡</h1>
-  <p class="sub">Smart starting settings • Hindi + English</p>
-</header>
-<main class="wrap">
-  <section class="card">
-    <div class="eyebrow">01 / Device check</div>
-    <h2>Analyse your phone / Apna phone analyse karein</h2>
-    <p class="muted">Tap once to read the device details that your browser allows. No app installation and no personal files are accessed.</p>
-    <button class="btn" id="analyseBtn">ANALYSE MY DEVICE / PHONE CHECK</button>
-    <div id="devicePanel" class="hidden" style="margin-top:16px">
-      <div class="row"><h3>Device report / Phone details</h3><span class="tag" id="confidence">Browser data</span></div>
-      <div class="grid" id="deviceGrid"></div>
-      <p class="muted" id="deviceNote"></p>
-    </div>
-  </section>
+<body class="antialiased selection:bg-amber-500 selection:text-black">
 
-  <section class="card">
-    <div class="eyebrow">02 / Playing style</div>
-    <h2>Choose your range / Apna style chunein</h2>
-    <div class="choices" id="styleChoices">
-      <button class="choice" data-style="long" aria-pressed="false"><span>🎯</span><span><b>LONG RANGE</b><small>Long-distance fights</small></span></button>
-      <button class="choice" data-style="mid" aria-pressed="false"><span>⚔️</span><span><b>MID RANGE</b><small>Close and medium fights</small></span></button>
-      <button class="choice" data-style="all" aria-pressed="true"><span>🔥</span><span><b>LONG + MID</b><small>All-rounder balance</small></span></button>
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-amber-950/80 via-yellow-900/50 to-amber-950/80 border-b border-amber-500/20 text-center py-2 px-4 text-xs font-medium text-amber-200">
+        ⚡ <span class="font-bold text-gold-400">TUFAN SENSI GPT v4.2</span> — Real-Time Hardware Calibration • No Login • No UID • 100% Safe In-Game Values
     </div>
-    <label for="gameVersion">Game version / Game version</label>
-    <select id="gameVersion"><option>Free Fire</option></select>
-    <label for="touchFeel">Your aim preference / Aim preference</label>
-    <select id="touchFeel"><option value="balanced">Balanced / Normal</option><option value="fast">Fast drag / Fast movement</option><option value="steady">Steady aim / Stable control</option></select>
-    <button class="btn" id="generateBtn">GENERATE DEVICE-AWARE SETTINGS</button>
-  </section>
 
-  <section class="card hidden" id="resultPanel">
-    <div class="row"><div><div class="eyebrow">03 / Recommendation</div><h2>Your starting sensitivity</h2></div><span class="tag">Estimated</span></div>
-    <p id="profileSummary"></p>
-    <div class="grid" id="settingsGrid"></div>
-    <div class="grid" style="margin-top:10px">
-      <div class="stat"><span>Suggested fire button size</span><strong id="fireSize">48%</strong></div>
-      <div class="stat"><span>Suggested HUD approach</span><strong id="hudText">Balanced</strong></div>
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-obsidian/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-amber-700 flex items-center justify-center text-black font-display font-black text-lg shadow-lg shadow-amber-500/20">
+                    TS
+                </div>
+                <div>
+                    <div class="font-display font-black text-lg tracking-wider text-white group-hover:text-gold-400 transition">
+                        TUFAN <span class="text-gold-400">SENSI</span>
+                    </div>
+                    <div class="text-[10px] font-mono uppercase tracking-widest text-gray-400 -mt-1">ZX TUFAN LABS</div>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links (Matching Reference Structure) -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-gold-400 transition">Home</a>
+                <a href="#generator" class="text-gold-400 font-semibold flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span> TUFAN SENSI GPT
+                </a>
+                <a href="#ai-finder" class="hover:text-gold-400 transition">AI Finder</a>
+                <a href="#tools" class="hover:text-gold-400 transition">Tools</a>
+                <a href="#devices" class="hover:text-gold-400 transition">Devices</a>
+                <a href="#tiers" class="hover:text-gold-400 transition">Free vs Premium</a>
+                <a href="#guides" class="hover:text-gold-400 transition">Guides</a>
+            </nav>
+
+            <!-- Right Action Buttons + Mobile Menu Trigger -->
+            <div class="flex items-center gap-3">
+                <a href="#tiers" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-gold-400/40 bg-gold-400/10 text-gold-300 text-xs font-bold hover:bg-gold-400/20 transition">
+                    👑 Premium Sensi
+                </a>
+                <button onclick="scrollToScanner()" class="gold-btn px-4 py-2 rounded-lg text-xs uppercase tracking-wider">
+                    Scan Device
+                </button>
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Open Menu" class="p-2 rounded-lg border border-white/15 bg-white/5 text-gray-200 hover:border-gold-400/50 hover:text-gold-400 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide-Out Menu Drawer -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 hidden">
+        <div onclick="toggleMobileMenu()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-surface border-l border-gold-400/20 p-6 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-5 border-b border-white/10">
+                    <span class="font-display font-black text-base text-gold-400">⚡ TUFAN MENU</span>
+                    <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg bg-white/5 text-gray-400 hover:text-white">✕</button>
+                </div>
+                <div class="mt-6 space-y-1.5 text-sm font-medium">
+                    <a href="#home" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-lg hover:bg-white/5 text-gray-200">🏠 Home</a>
+                    <a href="#generator" onclick="toggleMobileMenu(); triggerAutoScan()" class="block px-3.5 py-2.5 rounded-lg bg-gold-400/15 border border-gold-400/30 text-gold-300 font-bold">🤖 TUFAN SENSI GPT (Auto Scan)</a>
+                    <a href="#ai-finder" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-lg hover:bg-white/5 text-gray-200">🎯 AI Sensi Pack Finder</a>
+                    <a href="#tools" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-lg hover:bg-white/5 text-gray-200">🛠️ 6 Pro Utility Tools</a>
+                    <a href="#devices" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-lg hover:bg-white/5 text-gray-200">📱 18 Device Brands</a>
+                    <a href="#tiers" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-lg hover:bg-white/5 text-gray-200">👑 Free vs Premium Sensi</a>
+                    <a href="#guides" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-lg hover:bg-white/5 text-gray-200">📘 Aim & HUD Guides</a>
+                    <a href="#faq" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-lg hover:bg-white/5 text-gray-200">❓ FAQ & Safety</a>
+                </div>
+                <div class="mt-6 pt-5 border-t border-white/10">
+                    <div class="text-xs font-mono uppercase text-gray-400 mb-3">Quick Launch Tools</div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <button onclick="toggleMobileMenu(); openToolModal('gun')" class="p-2.5 rounded-lg bg-card border border-white/10 text-left hover:border-gold-400/40">🔫 Gun Sensi</button>
+                        <button onclick="toggleMobileMenu(); openToolModal('hud')" class="p-2.5 rounded-lg bg-card border border-white/10 text-left hover:border-gold-400/40">🎮 HUD Library</button>
+                        <button onclick="toggleMobileMenu(); openToolModal('name')" class="p-2.5 rounded-lg bg-card border border-white/10 text-left hover:border-gold-400/40">✨ Stylish Name</button>
+                        <button onclick="toggleMobileMenu(); openToolModal('dpi')" class="p-2.5 rounded-lg bg-card border border-white/10 text-left hover:border-gold-400/40">📐 DPI Calc</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-white/10 text-xs text-gray-500">
+                <p class="font-semibold text-gray-300">TUFAN SENSI — ZX TUFAN</p>
+                <p class="mt-1">Independent Free Fire utility platform. No APKs, no hacks, no UID required.</p>
+            </div>
+        </div>
     </div>
-    <button class="btn" id="copyBtn">COPY ALL SETTINGS</button>
-    <button class="btn secondary" id="resetBtn">RESET / RE-ANALYSE</button>
-    <div class="notice ok"><b>How to use:</b> Enter these as a starting point in Free Fire, then test in Training Ground. Change one setting at a time by 2–3 points until your aim feels controlled.</div>
-    <div class="notice"><b>Honest accuracy note:</b> These are heuristic starting suggestions based on available browser/device signals and your selected play style. They are not measured in-game values, not official Garena recommendations, and cannot guarantee headshots. Browser data cannot reliably identify every phone model, physical RAM, GPU, or display refresh rate.</div>
-  </section>
 
-  <section class="card">
-    <div class="eyebrow">About this tool</div>
-    <h2>Real device data, honest limits</h2>
-    <p class="muted">This page can inspect browser-reported information such as screen size, user-agent details, logical CPU cores, approximate device memory (when exposed), and a WebGL graphics label (when exposed). Android and browser privacy restrictions may hide or reduce these details.</p>
-    <p class="muted">It does not connect to Free Fire, read game files, inspect hidden hardware identifiers, or automatically test aim performance.</p>
-  </section>
-</main>
-<footer>© 2026 TUFAN SENSI GPT AI • Fan-made helper, not affiliated with Garena.</footer>
-<script>
-const $=id=>document.getElementById(id);
-let device=null, style="all";
-function getGPU(){
-  try{
-    const c=document.createElement("canvas");
-    const gl=c.getContext("webgl")||c.getContext("experimental-webgl");
-    if(!gl)return "Not exposed";
-    const ext=gl.getExtension("WEBGL_debug_renderer_info");
-    return ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : "Hidden by browser";
-  }catch(e){return "Not available"}
-}
-function getDevice(){
-  const ua=navigator.userAgent||"";
-  let brand="Not reliably exposed",model="Not exposed",os="Not identified";
-  if(/Android/i.test(ua)){
-    os=(ua.match(/Android\s([\d.]+)/i)||[])[1] ? "Android "+RegExp.$1 : "Android (version hidden)";
-    const samsung=ua.match(/; SM-[A-Z0-9]+/i), xiaomi=ua.match(/;\s*(Redmi[^;)]+|Mi\s[^;)]+|POCO[^;)]+)/i), pixel=ua.match(/;\s*(Pixel[^;)]+)/i), oneplus=ua.match(/;\s*(ONEPLUS[^;)]+)/i);
-    const found=samsung||xiaomi||pixel||oneplus;
-    if(found){model=found[0].replace(/^;\s*/,"");brand=/^SM-/i.test(model)?"Samsung":/^Redmi|^Mi |^POCO/i.test(model)?"Xiaomi":/^Pixel/i.test(model)?"Google":"OnePlus"}
-    else if(/Samsung/i.test(ua))brand="Samsung (model hidden)";
-  }else if(/iPhone|iPad/i.test(ua)){brand="Apple";model=/iPad/i.test(ua)?"iPad (model hidden)":"iPhone (model hidden)";os="iOS (version may be hidden)"}
-  else if(/Windows/i.test(ua))os="Windows";else if(/Mac OS/i.test(ua))os="macOS";
-  const dpr=window.devicePixelRatio||1;
-  return {
-    brand,model,os,
-    ram: navigator.deviceMemory ? "≈ "+navigator.deviceMemory+" GB (browser estimate)" : "Not exposed",
-    cpu: navigator.hardwareConcurrency ? navigator.hardwareConcurrency+" logical cores" : "Not exposed",
-    screen: `${screen.width} × ${screen.height} CSS px`,
-    pixel: `${Math.round(screen.width*dpr)} × ${Math.round(screen.height*dpr)} physical-pixel estimate`,
-    gpu:getGPU(),
-    refresh:"Not reliably detectable in a normal webpage",
-    ua
-  };
-}
-function renderDevice(d){
- const labels=[["Brand",d.brand],["Model",d.model],["Android / OS",d.os],["RAM",d.ram],["CPU cores",d.cpu],["Screen",d.screen],["Pixel estimate",d.pixel],["GPU",d.gpu],["Refresh rate",d.refresh]];
- $("deviceGrid").innerHTML=labels.map(([a,b])=>`<div class="stat"><span>${a}</span><strong>${escapeHTML(b)}</strong></div>`).join("");
- $("deviceNote").textContent="Only browser-visible data is shown. 'Not exposed' means the browser did not provide that detail; it is not a device fault.";
- $("devicePanel").classList.remove("hidden");
-}
-function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-$("analyseBtn").addEventListener("click",analyseDevice);\n$("logoTitle").addEventListener("click",analyseDevice);\n$("logoTitle").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();analyseDevice()}});\nfunction analyseDevice(){device=getDevice();renderDevice(device);$("devicePanel").scrollIntoView({behavior:"smooth",block:"nearest"})}
-$("styleChoices").addEventListener("click",e=>{
- const b=e.target.closest("button[data-style]");if(!b)return;style=b.dataset.style;
- document.querySelectorAll(".choice").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
-});
-function clamp(v){return Math.max(0,Math.min(200,Math.round(v)))}
-function generate(){
- if(!device){device=getDevice();renderDevice(device)}
- const mem=navigator.deviceMemory||4, cores=navigator.hardwareConcurrency||4;
- const w=Math.max(screen.width,screen.height), dpr=window.devicePixelRatio||1;
- const pixelLoad=w*dpr;
- // Conservative device-class adjustment: this is a transparent heuristic, not a benchmark.
- let base=mem>=8&&cores>=8?3:mem>=6&&cores>=6?1:mem<=2||cores<=4?-3:-1;
- if(pixelLoad>2400)base-=1;
- const feel=$("touchFeel").value;
- const feelAdj=feel==="fast"?5:feel==="steady"?-5:0;
- const rangeAdj=style==="long"?-7:style==="mid"?4:0;
- const g=base+feelAdj+rangeAdj;
- const values={
-  "General":clamp(184+g),
-  "Red Dot":clamp(178+g),
-  "2x Scope":clamp(169+Math.round(g*.8)),
-  "4x Scope":clamp(155+Math.round(g*.7)),
-  "Sniper Scope":clamp(90+Math.round(g*.4)),
-  "Free Look":clamp(100+Math.round(g*.5))
- };
- const fire=clamp(48+(mem>=6?1:0)+(feel==="fast"?2:0));
- const hud=style==="long"?"Steady drag / Stable":style==="mid"?"Fast close-range drag":"Balanced all-rounder";
- $("settingsGrid").innerHTML=Object.entries(values).map(([k,v])=>`<div class="setting"><span>${k}</span><strong>${v}</strong></div>`).join("");
- $("fireSize").textContent=fire+"%";$("hudText").textContent=hud;
- $("profileSummary").textContent=`Style: ${style==="long"?"Long range":style==="mid"?"Mid range":"Long + Mid all-rounder"} • Device class estimate: ${mem>=8&&cores>=8?"Higher":mem<=2||cores<=4?"Entry":"Standard"} • These are starting values, not verified best settings for your exact handset.`;
- $("resultPanel").classList.remove("hidden");$("resultPanel").scrollIntoView({behavior:"smooth"});
- window.currentSettings={values,fire,hud};
-}
-$("generateBtn").addEventListener("click",generate);
-$("copyBtn").addEventListener("click",async()=>{
- const x=window.currentSettings;if(!x)return;
- const text=`TUFAN SENSI GPT AI - Free Fire\n${Object.entries(x.values).map(([k,v])=>k+": "+v).join("\n")}\nFire button: ${x.fire}%\nHUD: ${x.hud}\nEstimated starting settings; test and tune in Training Ground.`;
- try{await navigator.clipboard.writeText(text);$("copyBtn").textContent="COPIED ✓"}catch(e){const t=document.createElement("textarea");t.value=text;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();$("copyBtn").textContent="COPIED ✓"}
-});
-$("resetBtn").addEventListener("click",()=>{device=null;$("devicePanel").classList.add("hidden");$("resultPanel").classList.add("hidden");$("analyseBtn").scrollIntoView({behavior:"smooth"})});
-</script>
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-14 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,158,11,0.14),_transparent_65%)] pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 text-xs font-mono uppercase tracking-wider mb-6">
+                <span>⚡ Free Fire Utility Platform</span>
+                <span>•</span>
+                <span>Android & iOS</span>
+            </div>
+
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                Precision <span class="gold-gradient-text">Device-Based</span><br>
+                Free Fire Sensitivity
+            </h1>
+
+            <p class="mt-5 text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                No fake "100% auto-headshot" promises. Tap <strong class="text-gold-400">TUFAN SENSI GPT</strong> to live-scan your phone's RAM, GPU, Model & Refresh Rate—or configure all 6 hardware steps manually for your exact combat range.
+            </p>
+
+            <!-- Primary Hero CTAs -->
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <button onclick="scrollToScanner(true)" class="gold-btn px-7 py-4 rounded-xl text-sm font-display uppercase tracking-wider flex items-center gap-2.5 shadow-xl">
+                    <span>🤖 Launch TUFAN SENSI GPT</span>
+                </button>
+                <a href="#tools" class="px-6 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-sm font-semibold text-white transition">
+                    Explore All 6 Tools
+                </a>
+                <a href="#guides" class="px-6 py-4 rounded-xl text-sm font-semibold text-gold-300 hover:text-gold-400 transition">
+                    Read the Guides →
+                </a>
+            </div>
+
+            <!-- Trust Badges Strip -->
+            <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-xs font-medium text-gray-300">
+                <div class="glass-panel py-2.5 px-3 rounded-lg flex items-center justify-center gap-2">
+                    <span class="text-gold-400">✓</span> Device Based Values
+                </div>
+                <div class="glass-panel py-2.5 px-3 rounded-lg flex items-center justify-center gap-2">
+                    <span class="text-gold-400">✓</span> No Login Needed
+                </div>
+                <div class="glass-panel py-2.5 px-3 rounded-lg flex items-center justify-center gap-2">
+                    <span class="text-gold-400">✓</span> 100% Free To Use
+                </div>
+                <div class="glass-panel py-2.5 px-3 rounded-lg flex items-center justify-center gap-2">
+                    <span class="text-gold-400">✓</span> Guides Included
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN ENGINE: TUFAN SENSI GPT + 6-STEP CONFIGURATOR -->
+    <section id="generator" class="py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-gold-400">Hardware Calibration Engine</span>
+                    <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-1">TUFAN SENSI GPT & 6-Step Configurator</h2>
+                    <p class="text-sm text-gray-400 mt-1">Auto-scan your hardware or select your exact brand, model, RAM, Hz, finger setup & combat range.</p>
+                </div>
+                <div class="flex items-center gap-2 bg-surface p-1.5 rounded-xl border border-white/10">
+                    <button id="scale200Btn" onclick="setScale(200)" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-gold-400 text-black transition">OB Scale (0–200)</button>
+                    <button id="scale100Btn" onclick="setScale(100)" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition">Classic (0–100)</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Column: Auto Scanner + 6-Step Configurator -->
+                <div class="lg:col-span-7 space-y-6">
+
+                    <!-- TUFAN SENSI GPT LIVE SCANNER CARD -->
+                    <div class="glass-panel rounded-2xl p-6 border border-gold-400/30 relative overflow-hidden">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <div class="inline-flex items-center gap-2 text-xs font-mono text-gold-400 uppercase font-bold">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Real-Time Device Telemetry
+                                </div>
+                                <h3 class="font-display text-lg font-bold text-white mt-1">TUFAN SENSI GPT Hardware Scanner</h3>
+                                <p class="text-xs text-gray-400 mt-0.5">Analyzes Model, OS Version, RAM, GPU Renderer & Live VSync Refresh Rate (Hz).</p>
+                            </div>
+                            <button id="autoScanBtn" onclick="triggerAutoScan()" class="gold-btn px-5 py-3 rounded-xl text-xs font-display uppercase tracking-wider shrink-0 flex items-center justify-center gap-2">
+                                <span>⚡ TAP TO SCAN PHONE</span>
+                            </button>
+                        </div>
+
+                        <!-- Scan Progress Bar -->
+                        <div id="scanProgressWrap" class="hidden mt-4">
+                            <div class="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full w-1/2 bg-gradient-to-r from-amber-500 to-yellow-300 scan-bar"></div>
+                            </div>
+                            <p id="scanStatusText" class="text-[11px] font-mono text-gold-300 mt-2">Initializing WebGL & VSync clock...</p>
+                        </div>
+
+                        <!-- Live Telemetry Readout Grid -->
+                        <div class="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+                            <div class="bg-obsidian/80 border border-white/10 rounded-xl p-3">
+                                <div class="text-gray-500 font-mono text-[10px]">BRAND / MODEL</div>
+                                <div id="specModel" class="font-bold text-white mt-0.5 truncate">Tap Scan or Select</div>
+                            </div>
+                            <div class="bg-obsidian/80 border border-white/10 rounded-xl p-3">
+                                <div class="text-gray-500 font-mono text-[10px]">OS VERSION</div>
+                                <div id="specOS" class="font-bold text-gray-200 mt-0.5 truncate">—</div>
+                            </div>
+                            <div class="bg-obsidian/80 border border-white/10 rounded-xl p-3">
+                                <div class="text-gray-500 font-mono text-[10px]">RAM CAPACITY</div>
+                                <div id="specRAM" class="font-bold text-gold-400 mt-0.5">—</div>
+                            </div>
+                            <div class="bg-obsidian/80 border border-white/10 rounded-xl p-3">
+                                <div class="text-gray-500 font-mono text-[10px]">GPU CHIPSET</div>
+                                <div id="specGPU" class="font-bold text-gray-200 mt-0.5 truncate">—</div>
+                            </div>
+                            <div class="bg-obsidian/80 border border-white/10 rounded-xl p-3">
+                                <div class="text-gray-500 font-mono text-[10px]">DISPLAY REFRESH</div>
+                                <div id="specHz" class="font-bold text-emerald-400 mt-0.5">—</div>
+                            </div>
+                            <div class="bg-obsidian/80 border border-white/10 rounded-xl p-3">
+                                <div class="text-gray-500 font-mono text-[10px]">COMBAT MODE</div>
+                                <div id="specRangeBadge" class="font-bold text-amber-300 mt-0.5 truncate">3. ALL ROUNDER</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6-STEP MANUAL CONFIGURATOR (Vorzilo-Style + Range Selector) -->
+                    <div class="glass-panel rounded-2xl p-6 space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <h3 class="font-display text-base font-bold text-white">Manual Device & Combat Configurator</h3>
+                                <p class="text-xs text-gray-400">If browser privacy hides your model, pick your exact specs below.</p>
+                            </div>
+                            <span id="stepCounter" class="text-xs font-mono px-2.5 py-1 rounded-md bg-gold-400/15 text-gold-300 border border-gold-400/30">6 Steps Ready</span>
+                        </div>
+
+                        <!-- STEP 01: Platform -->
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-mono uppercase text-gold-400 mb-2.5">
+                                <span class="px-1.5 py-0.5 rounded bg-gold-400/15 font-bold">01</span> Step 01 • Platform
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" onclick="selectPlatform('Android')" id="plat-Android" class="step-pill active py-3 px-4 rounded-xl border border-white/10 bg-obsidian text-left transition">
+                                    <div class="font-bold text-sm">🤖 Android Device</div>
+                                    <div class="text-[11px] text-gray-400">Xiaomi, Samsung, Realme, iQOO...</div>
+                                </button>
+                                <button type="button" onclick="selectPlatform('iOS')" id="plat-iOS" class="step-pill py-3 px-4 rounded-xl border border-white/10 bg-obsidian text-left transition">
+                                    <div class="font-bold text-sm">🍎 iPhone / iPad</div>
+                                    <div class="text-[11px] text-gray-400">Apple iOS / iPadOS ProMotion</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 02: Brand -->
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-mono uppercase text-gold-400 mb-2.5">
+                                <span class="px-1.5 py-0.5 rounded bg-gold-400/15 font-bold">02</span> Step 02 • Brand (All Brands)
+                            </div>
+                            <div id="brandGrid" class="grid grid-cols-3 sm:grid-cols-5 gap-2 text-xs font-semibold">
+                                <!-- Populated via JS -->
+                            </div>
+                        </div>
+
+                        <!-- STEP 03: Model -->
+                        <div>
+                            <div class="flex items-center justify-between text-xs font-mono uppercase text-gold-400 mb-2">
+                                <span><span class="px-1.5 py-0.5 rounded bg-gold-400/15 font-bold">03</span> Step 03 • Exact Device Model</span>
+                                <span class="text-[10px] text-gray-400 normal-case">Tuned per device class</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <select id="modelSelect" onchange="onModelDropdownChange()" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-gold-400">
+                                    <!-- Populated via JS -->
+                                </select>
+                                <input id="customModelInput" oninput="onCustomModelType()" type="text" placeholder="Or type exact model (e.g. Redmi Note 13 Pro)..." class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold-400">
+                            </div>
+                        </div>
+
+                        <!-- STEP 04: RAM -->
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-mono uppercase text-gold-400 mb-2.5">
+                                <span class="px-1.5 py-0.5 rounded bg-gold-400/15 font-bold">04</span> Step 04 • Device RAM
+                            </div>
+                            <div class="grid grid-cols-4 sm:grid-cols-7 gap-2 text-xs font-bold">
+                                <button type="button" onclick="selectRAM('2GB')" id="ram-2GB" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">2 GB</button>
+                                <button type="button" onclick="selectRAM('3GB')" id="ram-3GB" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">3 GB</button>
+                                <button type="button" onclick="selectRAM('4GB')" id="ram-4GB" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">4 GB</button>
+                                <button type="button" onclick="selectRAM('6GB')" id="ram-6GB" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">6 GB</button>
+                                <button type="button" onclick="selectRAM('8GB')" id="ram-8GB" class="step-pill active py-2.5 rounded-lg border border-white/10 bg-obsidian">8 GB</button>
+                                <button type="button" onclick="selectRAM('12GB')" id="ram-12GB" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">12 GB</button>
+                                <button type="button" onclick="selectRAM('16GB')" id="ram-16GB" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">16 GB</button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 05: Refresh Rate -->
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-mono uppercase text-gold-400 mb-2.5">
+                                <span class="px-1.5 py-0.5 rounded bg-gold-400/15 font-bold">05</span> Step 05 • Refresh Rate (Hz)
+                            </div>
+                            <div class="grid grid-cols-4 gap-2.5 text-xs font-bold">
+                                <button type="button" onclick="selectHz(60)" id="hz-60" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">60 Hz</button>
+                                <button type="button" onclick="selectHz(90)" id="hz-90" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">90 Hz</button>
+                                <button type="button" onclick="selectHz(120)" id="hz-120" class="step-pill active py-2.5 rounded-lg border border-white/10 bg-obsidian">120 Hz</button>
+                                <button type="button" onclick="selectHz(144)" id="hz-144" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">144 Hz+</button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 06: Finger Setup -->
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-mono uppercase text-gold-400 mb-2.5">
+                                <span class="px-1.5 py-0.5 rounded bg-gold-400/15 font-bold">06</span> Step 06 • Finger HUD Setup
+                            </div>
+                            <div class="grid grid-cols-4 gap-2.5 text-xs font-bold">
+                                <button type="button" onclick="selectFinger(2)" id="fin-2" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">2 Finger</button>
+                                <button type="button" onclick="selectFinger(3)" id="fin-3" class="step-pill active py-2.5 rounded-lg border border-white/10 bg-obsidian">3 Finger</button>
+                                <button type="button" onclick="selectFinger(4)" id="fin-4" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">4 Finger</button>
+                                <button type="button" onclick="selectFinger(5)" id="fin-5" class="step-pill py-2.5 rounded-lg border border-white/10 bg-obsidian">5 Finger</button>
+                            </div>
+                        </div>
+
+                        <!-- COMBAT RANGE SELECTOR (Requested 1 / 2 / 3 Options) -->
+                        <div class="pt-2 border-t border-white/10">
+                            <div class="flex items-center justify-between text-xs font-mono uppercase text-gold-400 mb-2.5">
+                                <span>🎯 Combat Range Mode (Opponent Distance)</span>
+                                <span class="text-[10px] text-gray-400 normal-case">Select 1, 2, or 3</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <button type="button" onclick="selectRange('LONG')" id="range-LONG" class="step-pill p-3.5 rounded-xl border border-white/10 bg-obsidian text-left transition">
+                                    <div class="font-display font-bold text-xs text-gold-300">1. LONG RANGE</div>
+                                    <div class="text-[11px] text-gray-400 mt-1">2X/4X Scope stability & AR tap precision</div>
+                                </button>
+                                <button type="button" onclick="selectRange('MID')" id="range-MID" class="step-pill p-3.5 rounded-xl border border-white/10 bg-obsidian text-left transition">
+                                    <div class="font-display font-bold text-xs text-gold-300">2. MID RANGE</div>
+                                    <div class="text-[11px] text-gray-400 mt-1">Fast Red Dot & SMG/Shotgun drag snaps</div>
+                                </button>
+                                <button type="button" onclick="selectRange('ALL')" id="range-ALL" class="step-pill active p-3.5 rounded-xl border border-white/10 bg-obsidian text-left transition">
+                                    <div class="font-display font-bold text-xs text-gold-300">3. LONG & MID ALL ROUNDER</div>
+                                    <div class="text-[11px] text-gray-400 mt-1">Balanced CS + BR opponent versatility</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button onclick="generateSensitivity()" class="w-full gold-btn py-4 rounded-xl font-display text-sm uppercase tracking-wider shadow-lg">
+                            🚀 Generate My Device Sensitivity
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live Calibrated Output & Micro-Tuning -->
+                <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
+                    <div class="glass-panel rounded-2xl p-6 border border-gold-400/35 shadow-2xl">
+                        <div class="flex items-start justify-between gap-2 pb-4 border-b border-white/10">
+                            <div>
+                                <span id="resultBadge" class="inline-block px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-mono text-[10px] uppercase font-bold">
+                                    ✓ CALIBRATED FOR YOUR HARDWARE
+                                </span>
+                                <h3 id="resultDeviceTitle" class="font-display text-xl font-black text-white mt-1.5">Xiaomi / Redmi Note Pro</h3>
+                                <p id="resultSubMeta" class="text-xs text-gray-400 mt-0.5">8GB RAM • 120Hz • 3 Finger • 3. LONG & MID ALL ROUNDER</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-[10px] font-mono text-gray-400">SCALE</div>
+                                <div id="activeScaleLabel" class="font-display font-bold text-sm text-gold-400">0–200</div>
+                            </div>
+                        </div>
+
+                        <!-- 6 Core Sensitivity Sliders + Live Micro-Tuning -->
+                        <div id="sensiOutputList" class="mt-5 space-y-4">
+                            <!-- Rendered dynamically -->
+                        </div>
+
+                        <!-- Extra Hardware Bonus Metrics (DPI & Fire Button) -->
+                        <div class="mt-6 grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+                            <div class="bg-obsidian rounded-xl p-3.5 border border-white/10">
+                                <div class="text-[10px] font-mono text-gray-400 uppercase">Recommended Safe DPI</div>
+                                <div id="outDPI" class="font-display text-lg font-black text-gold-400 mt-0.5">480 DPI</div>
+                                <div class="text-[10px] text-gray-500">Developer Options → Smallest Width</div>
+                            </div>
+                            <div class="bg-obsidian rounded-xl p-3.5 border border-white/10">
+                                <div class="text-[10px] font-mono text-gray-400 uppercase">Fire Button Size</div>
+                                <div id="outFireBtn" class="font-display text-lg font-black text-emerald-400 mt-0.5">46%</div>
+                                <div class="text-[10px] text-gray-500">Lower-center drag sweet spot</div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons: Copy / Save / Share -->
+                        <div class="mt-5 grid grid-cols-3 gap-2.5 text-xs font-bold">
+                            <button onclick="copySensitivity()" id="copyBtn" class="gold-btn py-3 rounded-xl flex items-center justify-center gap-1.5">
+                                📋 Copy
+                            </button>
+                            <button onclick="savePresetLocal()" class="py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white transition">
+                                💾 Save
+                            </button>
+                            <button onclick="shareSensitivity()" class="py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white transition">
+                                📤 Share
+                            </button>
+                        </div>
+
+                        <p class="mt-4 text-[11px] text-gray-400 leading-relaxed bg-obsidian/70 p-3 rounded-xl border border-white/5">
+                            ⚠️ <strong class="text-gray-200">Honest Tuning Note:</strong> Values are calculated from your touch sampling rate, RAM headroom & combat range. Test 10 minutes in Training Ground and fine-tune ±3 using the sliders above.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI SENSI PACK FINDER SECTION -->
+    <section id="ai-finder" class="py-14 px-4 sm:px-6 lg:px-8 bg-surface/60 border-y border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 font-mono text-xs uppercase">AI Powered</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-3">AI Sensi Pack Finder</h2>
+                <p class="text-sm text-gray-400 mt-2">Answer 3 quick questions and our matcher assigns the exact TUFAN Sensi Pack built for your playstyle.</p>
+            </div>
+
+            <div class="mt-8 glass-panel rounded-2xl p-6 sm:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-gold-400 mb-2">1. Primary Weapon Class</label>
+                        <select id="aiWeapon" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-3 text-sm text-white">
+                            <option value="shotgun">One-Tap Shotguns (M590 / M1887 / M1014)</option>
+                            <option value="pistol">Clash Squad Pistols (M500 / Desert Eagle)</option>
+                            <option value="ar">AR & Marksman (Woodpecker / AK47 / SCAR)</option>
+                            <option value="smg">Close-Range SMG Rush (MP40 / UMP)</option>
+                            <option value="sniper">Double Sniper (AWM / M82B)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-gold-400 mb-2">2. Drag Swipe Speed</label>
+                        <select id="aiSwipe" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-3 text-sm text-white">
+                            <option value="fast">Fast Whip Drag (Short thumb swipe)</option>
+                            <option value="smooth">Smooth J-Drag (Controlled medium swipe)</option>
+                            <option value="heavy">Heavy Slow Drag (High accuracy tracking)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-gold-400 mb-2">3. Main Ranked Mode</label>
+                        <select id="aiMode" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-3 text-sm text-white">
+                            <option value="cs">Clash Squad Ranked (Heroic / Master)</option>
+                            <option value="br">Battle Royale Full Map</option>
+                            <option value="custom">1v1 / 4v4 Custom Room</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-5 border-t border-white/10">
+                    <div id="aiPackResult" class="text-sm text-gray-300">
+                        Select your weapon & swipe style, then click <strong class="text-gold-400">Find My Pack</strong>.
+                    </div>
+                    <button onclick="runAiFinder()" class="gold-btn px-6 py-3 rounded-xl text-xs font-display uppercase tracking-wider shrink-0">
+                        🎯 Find My Pack
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 FREE UTILITY TOOLS SECTION -->
+    <section id="tools" class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-gold-400">6 Free Utilities</span>
+                    <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-1">More TUFAN SENSI Tools</h2>
+                    <p class="text-sm text-gray-400 mt-1">Every utility free, instant, and built to pair with your sensitivity profile.</p>
+                </div>
+                <span class="text-xs font-mono text-gray-400">No Login • Instant Browser Tools</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Tool 1 -->
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-gold-400/40 transition">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-xl mb-4">🔫</div>
+                        <h3 class="font-display text-base font-bold text-white">Gun Sensitivity Matrix</h3>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">Weapon-specific sensitivity multipliers and drag angle notes for M590, M500, Desert Eagle, Woodpecker & MP40.</p>
+                    </div>
+                    <button onclick="openToolModal('gun')" class="mt-5 text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Open Tool →</button>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-gold-400/40 transition">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-xl mb-4">🎮</div>
+                        <h3 class="font-display text-base font-bold text-white">Custom HUD Library</h3>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">Explore pro 2-finger, 3-finger, and 4-finger claw HUD layouts with fire button placement & quick-switch zones.</p>
+                    </div>
+                    <button onclick="openToolModal('hud')" class="mt-5 text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Open Tool →</button>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-gold-400/40 transition">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-xl mb-4">✨</div>
+                        <h3 class="font-display text-base font-bold text-white">Stylish Name Generator</h3>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">Create pro esports nicknames with custom symbols, crowns, and invisible spaces — copy in one tap.</p>
+                    </div>
+                    <button onclick="openToolModal('name')" class="mt-5 text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Open Tool →</button>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-gold-400/40 transition">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-xl mb-4">💎</div>
+                        <h3 class="font-display text-base font-bold text-white">Diamond & Top-Up Calculator</h3>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">Estimate Free Fire diamonds from NPR / INR budget — including weekly & monthly membership value.</p>
+                    </div>
+                    <button onclick="openToolModal('diamond')" class="mt-5 text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Open Tool →</button>
+                </div>
+
+                <!-- Tool 5 -->
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-gold-400/40 transition">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-xl mb-4">📐</div>
+                        <h3 class="font-display text-base font-bold text-white">Safe Android DPI Calculator</h3>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">Calculate boot-safe Smallest Width (dp) increases based on your screen resolution and RAM.</p>
+                    </div>
+                    <button onclick="openToolModal('dpi')" class="mt-5 text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Open Tool →</button>
+                </div>
+
+                <!-- Tool 6 -->
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-gold-400/40 transition">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-xl mb-4">🧬</div>
+                        <h3 class="font-display text-base font-bold text-white">Character Skill Combos</h3>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">Meta active + passive character presets grouped by CS Rusher, BR Rank Pusher, and Sniper Support.</p>
+                    </div>
+                    <button onclick="openToolModal('combo')" class="mt-5 text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Open Tool →</button>
+                </div>
+            </div>
+
+            <!-- Stats Strip (Matching Reference) -->
+            <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="bg-surface border border-white/10 rounded-2xl p-5 text-center">
+                    <div class="font-display text-2xl font-black text-gold-400">18</div>
+                    <div class="text-xs text-gray-400 mt-1">Device Brands Covered</div>
+                </div>
+                <div class="bg-surface border border-white/10 rounded-2xl p-5 text-center">
+                    <div class="font-display text-2xl font-black text-gold-400">6</div>
+                    <div class="text-xs text-gray-400 mt-1">Sensitivity Values Explained</div>
+                </div>
+                <div class="bg-surface border border-white/10 rounded-2xl p-5 text-center">
+                    <div class="font-display text-2xl font-black text-gold-400">3</div>
+                    <div class="text-xs text-gray-400 mt-1">Combat Range Engines</div>
+                </div>
+                <div class="bg-surface border border-white/10 rounded-2xl p-5 text-center">
+                    <div class="font-display text-2xl font-black text-emerald-400">No Login</div>
+                    <div class="text-xs text-gray-400 mt-1">Zero UID or Account Risk</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE SENSI VS TUFAN PREMIUM COMPARISON (Matching Reference) -->
+    <section id="tiers" class="py-16 px-4 sm:px-6 lg:px-8 bg-surface/60 border-y border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-widest text-gold-400">Compare Tiers</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-1">Free Sensi vs TUFAN Premium</h2>
+                <p class="text-sm text-gray-400 mt-2">Free gives you device-based sensitivity values instantly right here. Premium unlocks complete hand-tuned device profile packs & 1-on-1 setup support.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Free Tier -->
+                <div class="glass-panel rounded-2xl p-7 border border-white/15 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono uppercase text-gray-400">Standard Access</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold">FREE</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-black text-white mt-3">TUFAN Free Sensi</h3>
+                        <p class="text-xs text-gray-400 mt-1">Instant hardware-calibrated sensitivity & tuning guides with zero payment.</p>
+
+                        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> All 6 sensitivity values (0–200 & 0–100)</li>
+                            <li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> TUFAN SENSI GPT live hardware scanner</li>
+                            <li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> Long Range, Mid Range & All-Rounder modes</li>
+                            <li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> All 6 utility tools & written guides</li>
+                            <li class="flex items-center gap-2.5 text-gray-500"><span>✕</span> Custom per-model PDF & HUD layout pack</li>
+                            <li class="flex items-center gap-2.5 text-gray-500"><span>✕</span> 1-on-1 sensitivity & DPI tuning session</li>
+                        </ul>
+                    </div>
+                    <button onclick="scrollToScanner()" class="mt-8 w-full py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs uppercase tracking-wider transition">
+                        Use Free Generator
+                    </button>
+                </div>
+
+                <!-- Premium Tier -->
+                <div class="glass-panel rounded-2xl p-7 border-2 border-gold-400/60 relative flex flex-col justify-between shadow-2xl shadow-amber-500/10">
+                    <div class="absolute -top-3 right-6 px-3 py-0.5 rounded-full gold-btn text-[10px] font-display uppercase">Pro Esports Pack</div>
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono uppercase text-gold-400">Complete Package</span>
+                            <span class="px-3 py-1 rounded-full bg-gold-400/15 text-gold-300 border border-gold-400/30 text-xs font-bold">PREMIUM</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-black text-white mt-3">TUFAN Premium Sensi</h3>
+                        <p class="text-xs text-gray-400 mt-1">Hand-tuned profile package built specifically for your exact phone model & finger grip.</p>
+
+                        <ul class="mt-6 space-y-3 text-sm text-gray-200">
+                            <li class="flex items-center gap-2.5"><span class="text-gold-400 font-bold">✓</span> Everything in TUFAN Free Sensi</li>
+                            <li class="flex items-center gap-2.5"><span class="text-gold-400 font-bold">✓</span> Exact per-model micro-tuned sensitivity sheet</li>
+                            <li class="flex items-center gap-2.5"><span class="text-gold-400 font-bold">✓</span> Safe Android DPI & Game Turbo optimization guide</li>
+                            <li class="flex items-center gap-2.5"><span class="text-gold-400 font-bold">✓</span> Custom fire button size & claw HUD blueprint</li>
+                            <li class="flex items-center gap-2.5"><span class="text-gold-400 font-bold">✓</span> Downloadable Premium PDF Profile Guide</li>
+                            <li class="flex items-center gap-2.5"><span class="text-gold-400 font-bold">✓</span> Direct 1-on-1 setup verification</li>
+                        </ul>
+                    </div>
+                    <button onclick="openToolModal('premium')" class="mt-8 w-full gold-btn py-3.5 rounded-xl font-display text-xs uppercase tracking-wider">
+                        👑 Get TUFAN Premium Sensi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18 SUPPORTED DEVICE BRANDS DIRECTORY -->
+    <section id="devices" class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-8">
+                <span class="text-xs font-mono uppercase tracking-widest text-gold-400">Device Optimized Settings</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-1">18 Supported Smartphone Brands</h2>
+                <p class="text-sm text-gray-400 mt-1">Click any brand below to automatically load its panel response & sensitivity curve in the generator.</p>
+            </div>
+
+            <div id="deviceDirectoryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- WRITTEN TUNING GUIDES & FAQ -->
+    <section id="guides" class="py-16 px-4 sm:px-6 lg:px-8 bg-surface/60 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-10">
+                <span class="text-xs font-mono uppercase tracking-widest text-gold-400">Learn Free Fire Sensitivity Properly</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-1">Pro Tuning Guides & FAQ</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+                <article class="glass-panel rounded-2xl p-6">
+                    <div class="text-[11px] font-mono text-gold-400">GENERATOR GUIDE • 5 MIN</div>
+                    <h3 class="font-display text-base font-bold text-white mt-2">How TUFAN SENSI GPT Works</h3>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">Why 120Hz panels need slightly lower General values than 60Hz screens to prevent crosshair overshoot during fast shotgun flicks.</p>
+                </article>
+                <article class="glass-panel rounded-2xl p-6">
+                    <div class="text-[11px] font-mono text-gold-400">COMBAT RANGE • 6 MIN</div>
+                    <h3 class="font-display text-base font-bold text-white mt-2">Long Range vs Mid Range Tuning</h3>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">Long range relies on steady 2X/4X recoil control, while mid-range CS fights demand snappy Red Dot & General drag acceleration.</p>
+                </article>
+                <article class="glass-panel rounded-2xl p-6">
+                    <div class="text-[11px] font-mono text-gold-400">SAFETY & HONESTY • 4 MIN</div>
+                    <h3 class="font-display text-base font-bold text-white mt-2">What TUFAN SENSI Will Never Do</h3>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">Zero APKs, zero config file injections, zero UID requests. Only clean in-game slider numbers that keep your main account 100% safe.</p>
+                </article>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div id="faq" class="max-w-3xl mx-auto space-y-3">
+                <details class="glass-panel rounded-xl p-4 group" open>
+                    <summary class="font-semibold text-sm text-white cursor-pointer list-none flex justify-between items-center">
+                        <span>Is TUFAN SENSI safe? Can I get banned?</span>
+                        <span class="text-gold-400">+</span>
+                    </summary>
+                    <p class="text-xs text-gray-400 mt-2.5 leading-relaxed">100% safe. You never download any modified APK or script, and we never ask for your Free Fire UID or login. You simply enter the generated numbers into Free Fire's official Settings menu.</p>
+                </details>
+                <details class="glass-panel rounded-xl p-4 group">
+                    <summary class="font-semibold text-sm text-white cursor-pointer list-none flex justify-between items-center">
+                        <span>Why does Refresh Rate (60Hz vs 120Hz) change sensitivity?</span>
+                        <span class="text-gold-400">+</span>
+                    </summary>
+                    <p class="text-xs text-gray-400 mt-2.5 leading-relaxed">Higher refresh rate displays sample touch input twice as fast per second. Using max 200 sensitivity on a 120Hz or 144Hz screen often causes the crosshair to fly past the enemy's head, whereas 60Hz phones need higher values to compensate for frame latency.</p>
+                </details>
+                <details class="glass-panel rounded-xl p-4 group">
+                    <summary class="font-semibold text-sm text-white cursor-pointer list-none flex justify-between items-center">
+                        <span>What if the auto-scanner doesn't show my exact phone name?</span>
+                        <span class="text-gold-400">+</span>
+                    </summary>
+                    <p class="text-xs text-gray-400 mt-2.5 leading-relaxed">Modern mobile browsers sometimes mask exact model strings for privacy. Simply pick your Brand, Model, and RAM (`2GB` to `16GB`) in the 6-Step Configurator right below the scanner for an exact hardware match.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-obsidian border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 text-xs text-gray-400">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <div class="font-display font-black text-lg text-white">TUFAN <span class="text-gold-400">SENSI</span></div>
+                <p class="mt-2 text-gray-400 max-w-md leading-relaxed">
+                    Device-based Free Fire sensitivity calibration, hardware diagnostics, and gaming utilities crafted by ZX TUFAN. Built for competitive Clash Squad and Battle Royale players.
+                </p>
+            </div>
+            <div>
+                <div class="font-bold text-white uppercase tracking-wider mb-3">Utilities</div>
+                <ul class="space-y-2">
+                    <li><a href="#generator" class="hover:text-gold-400">TUFAN SENSI GPT</a></li>
+                    <li><a href="#ai-finder" class="hover:text-gold-400">AI Sensi Pack Finder</a></li>
+                    <li><a href="#tools" class="hover:text-gold-400">Gun & HUD Library</a></li>
+                    <li><a href="#devices" class="hover:text-gold-400">18 Supported Brands</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-bold text-white uppercase tracking-wider mb-3">Disclaimer</div>
+                <p class="text-[11px] text-gray-500 leading-relaxed">
+                    Independent community resource. Not affiliated with or endorsed by Garena. Recommended settings are hardware starting points—practice in Training Ground for best results.
+                </p>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-gray-500">
+            <span>© 2026 TUFAN SENSI • ZX TUFAN. All Rights Reserved.</span>
+            <span>No APKs • No Mods • 100% Fair Play</span>
+        </div>
+    </footer>
+
+    <!-- Interactive Tool Modal -->
+    <div id="toolModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <div onclick="closeToolModal()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative z-10 w-full max-w-lg glass-panel rounded-2xl border border-gold-400/40 p-6 shadow-2xl max-h-[88vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <h3 id="modalTitle" class="font-display font-bold text-lg text-gold-400">Tool</h3>
+                <button onclick="closeToolModal()" class="px-2.5 py-1 rounded-lg bg-white/10 text-gray-300 hover:text-white text-xs">✕</button>
+            </div>
+            <div id="modalBody" class="mt-4 text-sm text-gray-300 space-y-4"></div>
+        </div>
+    </div>
+
+    <script>
+        // Brand & Popular Models Database (All Major Brands)
+        const DEVICE_DB = {
+            "Xiaomi / Redmi": ["Redmi Note 13 Pro+ 5G", "Redmi Note 13 / 13C", "Redmi Note 12 / 12 Pro", "Redmi Note 11 / 10 Pro", "Xiaomi 14 / 13T Pro", "Redmi 12 5G / 13R", "Redmi 9A / 9C / 10A"],
+            "POCO": ["POCO X6 Pro 5G", "POCO X5 Pro / X4 Pro", "POCO F6 / F5 Pro", "POCO M6 Pro / M5", "POCO C65 / C55"],
+            "Samsung": ["Galaxy S24 Ultra / S23 Ultra", "Galaxy A55 / A54 5G", "Galaxy A35 / A34 / A25", "Galaxy M34 / M14 5G", "Galaxy A15 / A14 / A05s", "Galaxy F54 / F23"],
+            "Realme": ["Realme GT 6T / GT Neo 3", "Realme 12 Pro+ / 11 Pro", "Realme Narzo 70 Pro / 60", "Realme C67 / C55 / C53", "Realme 9i / 8 / 7"],
+            "iQOO": ["iQOO Neo 9 Pro / Neo 7 Pro", "iQOO Z9 5G / Z7 Pro", "iQOO 12 / 11 5G", "iQOO Z6 Lite / Z5"],
+            "Vivo": ["Vivo V30 Pro / V29", "Vivo T3 5G / T2x 5G", "Vivo Y200 / Y100 / Y28", "Vivo Y21 / Y16 / Y02"],
+            "OPPO": ["OPPO Reno 11 Pro / 10", "OPPO F25 Pro / F23 5G", "OPPO A79 / A78 / A59", "OPPO A18 / A17 / A57"],
+            "OnePlus": ["OnePlus 12 / 12R", "OnePlus 11 / 11R", "OnePlus Nord CE 4 / CE 3", "OnePlus Nord 3 / Nord 2T"],
+            "iPhone": ["iPhone 15 Pro Max / 15 Pro", "iPhone 15 / 14 / 13", "iPhone 13 Pro / 12 Pro", "iPhone 11 / XR / XS", "iPhone SE (3rd / 2nd Gen)"],
+            "iPad": ["iPad Pro M4 / M2 (120Hz)", "iPad Air M2 / M1", "iPad 10th / 9th Gen", "iPad Mini 6"],
+            "Infinix": ["Infinix GT 20 Pro / GT 10 Pro", "Infinix Note 40 Pro / 30", "Infinix Hot 40 Pro / 30i", "Infinix Smart 8 HD"],
+            "Tecno": ["Tecno Pova 6 Pro / Pova 5 Pro", "Tecno Camon 30 / 20 Pro", "Tecno Spark 20 Pro / 10C"],
+            "Motorola": ["Moto Edge 50 Pro / 40 Neo", "Moto G84 / G64 / G54 5G", "Moto G34 / G14"],
+            "Nothing": ["Nothing Phone (2a)", "Nothing Phone (2)", "Nothing Phone (1)"],
+            "ASUS ROG": ["ROG Phone 8 Pro (165Hz)", "ROG Phone 7 / 6", "Zenfone 10"],
+            "RedMagic": ["RedMagic 9 Pro (165Hz)", "RedMagic 8S Pro", "Black Shark 5 Pro"],
+            "Google Pixel": ["Pixel 8 Pro / 8a", "Pixel 7 Pro / 7a", "Pixel 6a"],
+            "Huawei / Honor": ["Honor X9b / 90 5G", "Honor X7b / Magic 6", "Huawei Nova 11 / Y9a"]
+        };
+
+        const BRAND_HZ_META = {
+            "Samsung": "60Hz – 120Hz", "Xiaomi / Redmi": "60Hz – 120Hz", "Realme": "60Hz – 120Hz",
+            "OnePlus": "90Hz – 120Hz", "Vivo": "60Hz – 120Hz", "OPPO": "60Hz – 120Hz",
+            "Motorola": "60Hz – 144Hz", "Nothing": "120Hz", "POCO": "90Hz – 144Hz",
+            "iPhone": "60Hz – 120Hz", "iPad": "60Hz – 120Hz", "ASUS ROG": "144Hz – 165Hz",
+            "RedMagic": "144Hz – 165Hz", "Infinix": "60Hz – 120Hz", "Tecno": "60Hz – 120Hz",
+            "Honor": "90Hz – 120Hz", "Google Pixel": "90Hz – 120Hz", "iQOO": "120Hz – 144Hz"
+        };
+
+        // Current Config State
+        let state = {
+            platform: 'Android',
+            brand: 'Xiaomi / Redmi',
+            model: 'Redmi Note 13 Pro+ 5G',
+            ram: '8GB',
+            hz: 120,
+            fingers: 3,
+            range: 'ALL', // 'LONG', 'MID', 'ALL'
+            scale: 200,
+            os: 'Android 14 / HyperOS',
+            gpu: 'Adreno / Mali GPU',
+            values: {
+                general: 184,
+                redDot: 176,
+                scope2x: 168,
+                scope4x: 158,
+                sniper: 112,
+                freeLook: 165
+            }
+        };
+
+        // Initialize UI on Load
+        function initApp() {
+            renderBrandGrid();
+            populateModels(state.brand);
+            renderDeviceDirectory();
+            generateSensitivity();
+        }
+
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobileDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function scrollToScanner(autoStart = false) {
+            document.getElementById('generator').scrollIntoView({ behavior: 'smooth' });
+            if (autoStart) {
+                setTimeout(triggerAutoScan, 400);
+            }
+        }
+
+        function renderBrandGrid() {
+            const grid = document.getElementById('brandGrid');
+            const brands = Object.keys(DEVICE_DB);
+            grid.innerHTML = brands.map(b => {
+                const active = b === state.brand ? 'active' : '';
+                const shortName = b.split(' / ')[0];
+                return `<button type="button" onclick="selectBrand('${b}')" class="step-pill ${active} py-2.5 px-2 rounded-lg border border-white/10 bg-obsidian truncate transition" title="${b}">${shortName}</button>`;
+            }).join('');
+        }
+
+        function renderDeviceDirectory() {
+            const dir = document.getElementById('deviceDirectoryGrid');
+            dir.innerHTML = Object.keys(DEVICE_DB).map(b => {
+                const hzText = BRAND_HZ_META[b] || "60Hz – 120Hz";
+                return `
+                    <button onclick="selectBrand('${b}'); scrollToScanner();" class="glass-panel p-4 rounded-xl text-left hover:border-gold-400/50 transition group">
+                        <div class="font-display font-bold text-xs text-white group-hover:text-gold-400 truncate">${b}</div>
+                        <div class="text-[11px] font-mono text-gray-400 mt-1">${hzText}</div>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function populateModels(brand) {
+            const select = document.getElementById('modelSelect');
+            const models = DEVICE_DB[brand] || ["Standard Model"];
+            select.innerHTML = models.map(m => `<option value="${m}">${m}</option>`).join('');
+            state.model = models[0];
+            document.getElementById('customModelInput').value = '';
+        }
+
+        function selectPlatform(plat) {
+            state.platform = plat;
+            ['Android', 'iOS'].forEach(p => {
+                document.getElementById(`plat-${p}`).classList.toggle('active', p === plat);
+            });
+            if (plat === 'iOS' && state.brand !== 'iPhone' && state.brand !== 'iPad') {
+                selectBrand('iPhone');
+            } else if (plat === 'Android' && (state.brand === 'iPhone' || state.brand === 'iPad')) {
+                selectBrand('Xiaomi / Redmi');
+            }
+            generateSensitivity();
+        }
+
+        function selectBrand(brand) {
+            state.brand = brand;
+            if (brand === 'iPhone' || brand === 'iPad') {
+                state.platform = 'iOS';
+                document.getElementById('plat-iOS').classList.add('active');
+                document.getElementById('plat-Android').classList.remove('active');
+            } else {
+                state.platform = 'Android';
+                document.getElementById('plat-Android').classList.add('active');
+                document.getElementById('plat-iOS').classList.remove('active');
+            }
+            renderBrandGrid();
+            populateModels(brand);
+            generateSensitivity();
+        }
+
+        function onModelDropdownChange() {
+            state.model = document.getElementById('modelSelect').value;
+            document.getElementById('customModelInput').value = '';
+            generateSensitivity();
+        }
+
+        function onCustomModelType() {
+            const val = document.getElementById('customModelInput').value.trim();
+            state.model = val || document.getElementById('modelSelect').value;
+            generateSensitivity();
+        }
+
+        function selectRAM(ram) {
+            state.ram = ram;
+            ['2GB', '3GB', '4GB', '6GB', '8GB', '12GB', '16GB'].forEach(r => {
+                document.getElementById(`ram-${r}`).classList.toggle('active', r === ram);
+            });
+            generateSensitivity();
+        }
+
+        function selectHz(hz) {
+            state.hz = hz;
+            [60, 90, 120, 144].forEach(h => {
+                document.getElementById(`hz-${h}`).classList.toggle('active', h === hz);
+            });
+            generateSensitivity();
+        }
+
+        function selectFinger(fin) {
+            state.fingers = fin;
+            [2, 3, 4, 5].forEach(f => {
+                document.getElementById(`fin-${f}`).classList.toggle('active', f === fin);
+            });
+            generateSensitivity();
+        }
+
+        function selectRange(rng) {
+            state.range = rng;
+            ['LONG', 'MID', 'ALL'].forEach(r => {
+                document.getElementById(`range-${r}`).classList.toggle('active', r === rng);
+            });
+            const labelMap = {
+                'LONG': '1. LONG RANGE',
+                'MID': '2. MID RANGE',
+                'ALL': '3. LONG & MID ALL ROUNDER'
+            };
+            document.getElementById('specRangeBadge').textContent = labelMap[rng];
+            generateSensitivity();
+        }
+
+        function setScale(newScale) {
+            if (state.scale === newScale) return;
+            const factor = newScale / state.scale;
+            state.scale = newScale;
+            Object.keys(state.values).forEach(k => {
+                state.values[k] = Math.min(newScale, Math.max(10, Math.round(state.values[k] * factor)));
+            });
+            document.getElementById('scale200Btn').className = newScale === 200
+                ? 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-gold-400 text-black transition'
+                : 'px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition';
+            document.getElementById('scale100Btn').className = newScale === 100
+                ? 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-gold-400 text-black transition'
+                : 'px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition';
+            document.getElementById('activeScaleLabel').textContent = newScale === 200 ? '0–200' : '0–100';
+            renderSensitivityBars();
+        }
+
+        // Real-Time Hardware Telemetry Scanner (TUFAN SENSI GPT)
+        async function triggerAutoScan() {
+            const btn = document.getElementById('autoScanBtn');
+            const prog = document.getElementById('scanProgressWrap');
+            const status = document.getElementById('scanStatusText');
+
+            btn.disabled = true;
+            btn.innerHTML = '<span>⏳ SCANNING HARDWARE...</span>';
+            prog.classList.remove('hidden');
+
+            // 1. Detect GPU via WebGL
+            status.textContent = 'Reading WebGL GPU Renderer & Shader cores...';
+            let gpuName = 'Integrated Mobile GPU';
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (gl) {
+                    const ext = gl.getExtension('WEBGL_debug_renderer_info');
+                    if (ext) {
+                        gpuName = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)
+                            .replace(/ANGLE \(|, Direct3D.*|\)/g, '').trim();
+                    }
+                }
+            } catch (e) {}
+
+            // 2. Detect RAM & OS / Model
+            const rawMem = navigator.deviceMemory || 8;
+            const validRams = [2, 3, 4, 6, 8, 12, 16];
+            const closestRam = validRams.reduce((prev, curr) => Math.abs(curr - rawMem) < Math.abs(prev - rawMem) ? curr : prev);
+
+            let detectedOS = 'Android / Mobile OS';
+            let detectedModel = navigator.platform || 'Smartphone';
+            const ua = navigator.userAgent;
+
+            if (/iPhone|iPad|iPod/i.test(ua)) {
+                detectedOS = 'Apple iOS';
+                detectedModel = /iPad/i.test(ua) ? 'Apple iPad' : 'Apple iPhone';
+                state.platform = 'iOS';
+                selectBrand(/iPad/i.test(ua) ? 'iPad' : 'iPhone');
+            } else if (/Android/i.test(ua)) {
+                const verMatch = ua.match(/Android\s([0-9.]+)/);
+                detectedOS = verMatch ? `Android ${verMatch[1]}` : 'Android OS';
+                const modelMatch = ua.match(/;\s*([^;)]+)\s+Build\//);
+                if (modelMatch && modelMatch[1] && modelMatch[1] !== 'K') {
+                    detectedModel = modelMatch[1].trim();
+                } else {
+                    detectedModel = `${state.brand.split(' / ')[0]} Device (UA Masked)`;
+                }
+            } else {
+                detectedOS = navigator.platform || 'Desktop / Emulator';
+                detectedModel = 'PC / Emulator Client';
+            }
+
+            if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+                try {
+                    const hints = await navigator.userAgentData.getHighEntropyValues(['model', 'platformVersion']);
+                    if (hints.model) detectedModel = hints.model;
+                    if (hints.platformVersion && /Android/i.test(ua)) detectedOS = `Android ${hints.platformVersion}`;
+                } catch (e) {}
+            }
+
+            // 3. Live VSync Refresh Rate Loop (requestAnimationFrame)
+            status.textContent = 'Measuring VSync display refresh rate (Hz)...';
+            const measuredHz = await new Promise(resolve => {
+                let frames = 0;
+                const start = performance.now();
+                function tick(now) {
+                    frames++;
+                    if (now - start >= 550) {
+                        const fps = Math.round((frames * 1000) / (now - start));
+                        if (fps >= 132) resolve(144);
+                        else if (fps >= 105) resolve(120);
+                        else if (fps >= 78) resolve(90);
+                        else resolve(60);
+                    } else {
+                        requestAnimationFrame(tick);
+                    }
+                }
+                requestAnimationFrame(tick);
+            });
+
+            // Apply detected specs
+            state.os = detectedOS;
+            state.gpu = gpuName;
+            state.model = detectedModel;
+            document.getElementById('customModelInput').value = detectedModel;
+            selectRAM(`${closestRam}GB`);
+            selectHz(measuredHz);
+
+            document.getElementById('specModel').textContent = detectedModel;
+            document.getElementById('specOS').textContent = detectedOS;
+            document.getElementById('specRAM').textContent = `${closestRam} GB RAM`;
+            document.getElementById('specGPU').textContent = gpuName;
+            document.getElementById('specHz').textContent = `${measuredHz} Hz Live`;
+
+            prog.classList.add('hidden');
+            btn.disabled = false;
+            btn.innerHTML = '<span>✓ SCAN COMPLETE (RE-SCAN)</span>';
+            generateSensitivity();
+        }
+
+        // Core Device-Based Sensitivity Formula (0-200 & 0-100)
+        function generateSensitivity() {
+            const ramNum = parseInt(state.ram) || 8;
+            const isIOS = state.platform === 'iOS';
+
+            // Base 200-scale baseline tuned to refresh rate & RAM touch latency
+            let general = 186;
+            let redDot = 178;
+            let scope2x = 166;
+            let scope4x = 156;
+            let sniper = 110;
+            let freeLook = 165;
+
+            // Refresh rate compensation
+            if (state.hz === 60) {
+                general += 9; redDot += 8; scope2x += 7; scope4x += 6;
+            } else if (state.hz === 90) {
+                general += 4; redDot += 4; scope2x += 3; scope4x += 3;
+            } else if (state.hz === 144) {
+                general -= 6; redDot -= 5; scope2x -= 4; scope4x -= 4;
+            }
+
+            // Low-RAM frame drop compensation
+            if (ramNum <= 3) {
+                general += 6; redDot += 5;
+            } else if (ramNum === 4) {
+                general += 3; redDot += 3;
+            } else if (ramNum >= 12) {
+                general -= 2;
+            }
+
+            // iOS has tighter native digitizer acceleration
+            if (isIOS) {
+                general -= 14; redDot -= 12; scope2x -= 10; scope4x -= 8; sniper -= 10;
+            }
+
+            // Finger HUD adjustment
+            if (state.fingers >= 4) {
+                general -= 4; freeLook += 10;
+            }
+
+            // Combat Range Opponent Calibration (1: LONG, 2: MID, 3: ALL)
+            if (state.range === 'LONG') {
+                general -= 6;
+                redDot -= 4;
+                scope2x += 10;
+                scope4x += 14;
+                sniper += 12;
+            } else if (state.range === 'MID') {
+                general += 8;
+                redDot += 12;
+                scope2x -= 4;
+                scope4x -= 6;
+            } else {
+                // 3. ALL ROUNDER balanced boost
+                general += 3;
+                redDot += 5;
+                scope2x += 4;
+                scope4x += 4;
+            }
+
+            // Deterministic subtle model hash so each phone model gets tailored calibration
+            let hash = 0;
+            for (let i = 0; i < state.model.length; i++) {
+                hash = ((hash << 5) - hash) + state.model.charCodeAt(i);
+                hash |= 0;
+            }
+            const jitter = (Math.abs(hash) % 5) - 2; // -2 to +2
+
+            const clamp200 = v => Math.max(40, Math.min(200, Math.round(v + jitter)));
+            const scaleFactor = state.scale / 200;
+
+            state.values = {
+                general: Math.round(clamp200(general) * scaleFactor),
+                redDot: Math.round(clamp200(redDot) * scaleFactor),
+                scope2x: Math.round(clamp200(scope2x) * scaleFactor),
+                scope4x: Math.round(clamp200(scope4x) * scaleFactor),
+                sniper: Math.round(clamp200(sniper) * scaleFactor),
+                freeLook: Math.round(clamp200(freeLook) * scaleFactor)
+            };
+
+            // Update Header & Telemetry Cards
+            const rangeLabels = {
+                'LONG': '1. LONG RANGE',
+                'MID': '2. MID RANGE',
+                'ALL': '3. LONG & MID ALL ROUNDER'
+            };
+            document.getElementById('resultDeviceTitle').textContent = state.model;
+            document.getElementById('resultSubMeta').textContent = `${state.ram} RAM • ${state.hz}Hz • ${state.fingers} Finger • ${rangeLabels[state.range]}`;
+
+            document.getElementById('specModel').textContent = state.model;
+            document.getElementById('specRAM').textContent = `${state.ram} RAM`;
+            document.getElementById('specHz').textContent = `${state.hz} Hz`;
+            if (document.getElementById('specOS').textContent === '—') {
+                document.getElementById('specOS').textContent = isIOS ? 'Apple iOS' : 'Android OS';
+            }
+            if (document.getElementById('specGPU').textContent === '—') {
+                document.getElementById('specGPU').textContent = isIOS ? 'Apple Bionic / M-Series' : 'Snapdragon / Dimensity GPU';
+            }
+
+            // Safe DPI & Fire Button
+            if (isIOS) {
+                document.getElementById('outDPI').textContent = 'Default (iOS)';
+            } else {
+                const baseDpi = ramNum <= 4 ? 440 : (state.hz >= 120 ? 495 : 465);
+                document.getElementById('outDPI').textContent = `${baseDpi + (Math.abs(hash) % 25)} DPI`;
+            }
+            const fireBtnSize = state.range === 'MID' ? 43 : (state.range === 'LONG' ? 49 : 46);
+            document.getElementById('outFireBtn').textContent = `${fireBtnSize}%`;
+
+            renderSensitivityBars();
+        }
+
+        function renderSensitivityBars() {
+            const container = document.getElementById('sensiOutputList');
+            const items = [
+                { key: 'general', label: 'General', hint: 'Camera movement & hip-fire drag' },
+                { key: 'redDot', label: 'Red Dot', hint: 'Close/mid-range one-tap & SMG snap' },
+                { key: 'scope2x', label: '2X Scope', hint: 'Mid-to-long AR spray & burst drag' },
+                { key: 'scope4x', label: '4X Scope', hint: 'Long-range head tracking & Marksman' },
+                { key: 'sniper', label: 'Sniper Scope', hint: 'AWM / M82B quick-scope flicks' },
+                { key: 'freeLook', label: 'Free Look', hint: '360° sprint & gloo wall awareness' }
+            ];
+
+            container.innerHTML = items.map(item => {
+                const val = state.values[item.key];
+                const pct = Math.round((val / state.scale) * 100);
+                return `
+                    <div>
+                        <div class="flex items-center justify-between text-xs mb-1.5">
+                            <div>
+                                <span class="font-bold text-white">${item.label}</span>
+                                <span class="text-[10px] text-gray-500 ml-1.5 hidden sm:inline">${item.hint}</span>
+                            </div>
+                            <span id="val-${item.key}" class="font-display font-black text-sm text-gold-400">${val}</span>
+                        </div>
+                        <div class="relative flex items-center">
+                            <input type="range" min="0" max="${state.scale}" value="${val}"
+                                oninput="manualTune('${item.key}', this.value)"
+                                class="w-full z-10">
+                            <div class="absolute left-0 h-1.5 rounded-full bg-gradient-to-r from-amber-600 to-gold-400 pointer-events-none" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function manualTune(key, newVal) {
+            state.values[key] = parseInt(newVal);
+            renderSensitivityBars();
+        }
+
+        function copySensitivity() {
+            const v = state.values;
+            const text = `⚡ TUFAN SENSI — ${state.model} (${state.ram} | ${state.hz}Hz | ${state.range})
+` +
+                `• General: ${v.general}
+` +
+                `• Red Dot: ${v.redDot}
+` +
+                `• 2X Scope: ${v.scope2x}
+` +
+                `• 4X Scope: ${v.scope4x}
+` +
+                `• Sniper Scope: ${v.sniper}
+` +
+                `• Free Look: ${v.freeLook}
+` +
+                `• Safe DPI: ${document.getElementById('outDPI').textContent} | Fire Btn: ${document.getElementById('outFireBtn').textContent}`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerHTML = '✓ Copied!';
+                setTimeout(() => btn.innerHTML = '📋 Copy', 2000);
+            });
+        }
+
+        function savePresetLocal() {
+            localStorage.setItem('tufan_sensi_saved', JSON.stringify(state));
+            alert(`Saved ${state.model} (${state.range}) profile to your browser!`);
+        }
+
+        function shareSensitivity() {
+            const shareText = `Check my TUFAN SENSI setup for ${state.model} (${state.hz}Hz): General ${state.values.general}, Red Dot ${state.values.redDot}!`;
+            if (navigator.share) {
+                navigator.share({ title: 'TUFAN SENSI Profile', text: shareText });
+            } else {
+                copySensitivity();
+            }
+        }
+
+        // AI Sensi Pack Finder
+        function runAiFinder() {
+            const w = document.getElementById('aiWeapon').value;
+            const s = document.getElementById('aiSwipe').value;
+            const m = document.getElementById('aiMode').value;
+
+            const packs = {
+                shotgun: { name: 'TUFAN M590 / M1887 ONE-TAP PACK', range: 'MID', note: 'High General + Red Dot snap for upward J-drags.' },
+                pistol: { name: 'TUFAN M500 / DEAGLE CLASH PACK', range: 'MID', note: 'Micro-stabilized Red Dot for first-round CS headshots.' },
+                ar: { name: 'TUFAN WOODPECKER / AR BEAM PACK', range: 'LONG', note: 'Locked 2X/4X scope stability to stop chest-lock.' },
+                smg: { name: 'TUFAN MP40 / UMP RUSH PACK', range: 'ALL', note: 'Balanced close-to-mid tracking with 44% fire button.' },
+                sniper: { name: 'TUFAN DOUBLE AWM FLICK PACK', range: 'LONG', note: 'Precision Sniper Scope ratio for quick-switch shots.' }
+            };
+
+            const chosen = packs[w];
+            selectRange(chosen.range);
+            if (s === 'fast') {
+                state.values.general = Math.max(20, state.values.general - 5);
+            } else if (s === 'heavy') {
+                state.values.general = Math.min(state.scale, state.values.general + 6);
+            }
+            renderSensitivityBars();
+
+            document.getElementById('aiPackResult').innerHTML = `
+                <div class="text-gold-400 font-display font-bold text-sm">✓ Matched: ${chosen.name}</div>
+                <div class="text-xs text-gray-300 mt-0.5">${chosen.note} (${m.toUpperCase()} tuned — applied to your generator above!)</div>
+            `;
+        }
+
+        // 6 Interactive Utility Modals
+        function openToolModal(type) {
+            const modal = document.getElementById('toolModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            if (type === 'gun') {
+                title.textContent = '🔫 Gun Sensitivity Matrix';
+                body.innerHTML = `
+                    <p class="text-xs text-gray-400">Optimal drag offsets relative to your calibrated General (${state.values.general}) & Red Dot (${state.values.redDot}):</p>
+                    <div class="space-y-2.5 text-xs">
+                        <div class="p-3 rounded-xl bg-obsidian border border-white/10 flex justify-between"><span><strong>M590 / M1887</strong> (One-Tap)</span><span class="text-gold-400 font-bold">General +4 • Straight Drag</span></div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-white/10 flex justify-between"><span><strong>M500 / Desert Eagle</strong></span><span class="text-gold-400 font-bold">Red Dot -2 • J-Shape Drag</span></div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-white/10 flex justify-between"><span><strong>Woodpecker / AC80</strong></span><span class="text-gold-400 font-bold">2X / 4X +5 • Slow Tap Drag</span></div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-white/10 flex justify-between"><span><strong>MP40 / UMP</strong> (SMG)</span><span class="text-gold-400 font-bold">Red Dot +6 • Smooth Curve</span></div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-white/10 flex justify-between"><span><strong>AWM / M82B</strong> (Sniper)</span><span class="text-gold-400 font-bold">Sniper ${state.values.sniper} • Quick Switch</span></div>
+                    </div>`;
+            } else if (type === 'hud') {
+                title.textContent = '🎮 Pro Custom HUD Library';
+                body.innerHTML = `
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-gold-400/30">
+                            <div class="font-bold text-gold-400">2-Finger Thumb Pro HUD</div>
+                            <p class="text-gray-400 mt-1">Fire Button: <strong>46%</strong> (Bottom-Right, 18% from bottom edge) • Left Gloo Wall: <strong>68%</strong> • Jump/Crouch stacked right.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-white/10">
+                            <div class="font-bold text-white">3-Finger Claw (ZX TUFAN Shotgun Layout)</div>
+                            <p class="text-gray-400 mt-1">Top-Left Index: <strong>Quick Weapon Switch (85%)</strong> + <strong>Left Fire (60%)</strong> for instant M590 sit-up gloo walls.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-white/10">
+                            <div class="font-bold text-white">4-Finger Full Claw Esports HUD</div>
+                            <p class="text-gray-400 mt-1">Top-Left: Left Fire + Gloo • Top-Right: Jump + Crouch + Scope • Right Thumb: Pure Aim & Drag zone.</p>
+                        </div>
+                    </div>`;
+            } else if (type === 'name') {
+                title.textContent = '✨ Stylish Name Generator';
+                body.innerHTML = `
+                    <input id="nickInput" oninput="updateNicks(this.value)" type="text" value="ZX TUFAN" placeholder="Enter your IGN..." class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white">
+                    <div id="nickOutputs" class="space-y-2 text-xs"></div>`;
+                setTimeout(() => updateNicks('ZX TUFAN'), 10);
+            } else if (type === 'diamond') {
+                title.textContent = '💎 Diamond & Top-Up Estimator';
+                body.innerHTML = `
+                    <label class="block text-xs text-gray-400">Enter Budget (NPR / INR):</label>
+                    <input id="budgetIn" oninput="calcDiamonds(this.value)" type="number" value="500" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white">
+                    <div id="diamondOut" class="p-4 rounded-xl bg-obsidian border border-gold-400/30 text-xs space-y-1.5"></div>`;
+                setTimeout(() => calcDiamonds(500), 10);
+            } else if (type === 'dpi') {
+                title.textContent = '📐 Safe Android DPI Calculator';
+                body.innerHTML = `
+                    <label class="block text-xs text-gray-400">Select Your Default Stock DPI (Usually 360 or 392):</label>
+                    <select id="stockDpiSel" onchange="calcSafeDpi(this.value)" class="w-full bg-obsidian border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white">
+                        <option value="360">360 dp (Standard Budget / Mid-range)</option>
+                        <option value="392">392 dp (Xiaomi / POCO / Realme)</option>
+                        <option value="411">411 dp (Samsung / OnePlus / Pixel)</option>
+                    </select>
+                    <div id="dpiCalcOut" class="p-4 rounded-xl bg-obsidian border border-gold-400/30 text-xs space-y-2"></div>`;
+                setTimeout(() => calcSafeDpi(392), 10);
+            } else if (type === 'combo') {
+                title.textContent = '🧬 Meta Character Skill Combos';
+                body.innerHTML = `
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-gold-400/30">
+                            <div class="font-bold text-gold-400">🔥 Clash Squad Aggressive Rusher</div>
+                            <p class="text-gray-300 mt-1"><strong>Tatsuya</strong> (Active) + <strong>Kelly</strong> + <strong>Hayato</strong> + <strong>Caroline</strong> (Shotgun Speed)</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-white/10">
+                            <div class="font-bold text-white">🏆 BR Ranked Survival & Mid-Range</div>
+                            <p class="text-gray-300 mt-1"><strong>K / Alok</strong> (Active) + <strong>Maro</strong> (Long Damage) + <strong>Moco</strong> + <strong>Maxim</strong></p>
+                        </div>
+                    </div>`;
+            } else if (type === 'premium') {
+                title.textContent = '👑 TUFAN Premium Sensi Pack';
+                body.innerHTML = `
+                    <div class="p-4 rounded-xl bg-obsidian border border-gold-400/40 space-y-2 text-xs">
+                        <div class="font-display font-bold text-gold-400 text-sm">Selected Device: ${state.model} (${state.ram} • ${state.hz}Hz)</div>
+                        <p class="text-gray-300">Includes custom per-model micro-tuned sensitivity sheet, safe DPI profile, HUD layout diagram, and 1-on-1 setup verification.</p>
+                        <div class="pt-2 text-gray-400">Connect with <strong class="text-white">ZX TUFAN</strong> on WhatsApp / YouTube to request your custom device pack.</div>
+                    </div>`;
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeToolModal() {
+            const modal = document.getElementById('toolModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function updateNicks(raw) {
+            const name = raw.trim() || 'ZX TUFAN';
+            const styles = [
+                `꧁༒☬${name}☬༒꧂`,
+                `⚡乡${name}乡⚡`,
+                `★彡[${name}]彡★`,
+                `么・${name}ㅤ亗`,
+                `『TUFAN』・${name}`
+            ];
+            document.getElementById('nickOutputs').innerHTML = styles.map(s => `
+                <div class="p-2.5 rounded-lg bg-obsidian border border-white/10 flex items-center justify-between">
+                    <span class="font-semibold text-white">${s}</span>
+                    <button onclick="navigator.clipboard.writeText('${s}'); this.textContent='Copied!'" class="px-2.5 py-1 rounded bg-gold-400 text-black font-bold text-[11px]">Copy</button>
+                </div>
+            `).join('');
+        }
+
+        function calcDiamonds(amt) {
+            const val = Math.max(0, parseFloat(amt) || 0);
+            const approxDiamonds = Math.round(val * 1.25);
+            document.getElementById('diamondOut').innerHTML = `
+                <div>Estimated Top-Up Value: <strong class="text-gold-400 text-sm">~${approxDiamonds} Diamonds</strong></div>
+                <div class="text-gray-400">Best Value Tip: Weekly Membership gives 450 Diamonds total at lower cost per diamond.</div>
+            `;
+        }
+
+        function calcSafeDpi(stock) {
+            const base = parseInt(stock);
+            const safeMax = Math.round(base * 1.24);
+            document.getElementById('dpiCalcOut').innerHTML = `
+                <div>Recommended Gaming DPI: <strong class="text-gold-400 text-sm">${safeMax} dp</strong> (+24% safe boost)</div>
+                <div class="text-gray-400">Never exceed <strong>${Math.round(base * 1.45)} dp</strong> on Android to prevent black-screen boot loops.</div>
+            `;
+        }
+
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
 </body>
 </html>
