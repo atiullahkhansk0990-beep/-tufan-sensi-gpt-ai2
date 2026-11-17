@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d1b">
+<title>TUFAN SENSI GPT AI</title>
+<style>
+:root{color-scheme:dark;--bg:#090d1b;--panel:#121a2e;--line:#263452;--cyan:#45e3ff;--text:#f3f7ff;--muted:#aab6d0}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:radial-gradient(circle at top,#17264a,var(--bg) 55%);color:var(--text);min-height:100vh}
+header{text-align:center;padding:38px 16px 24px}header .logo{font-size:38px}h1{margin:8px 0;color:var(--cyan);font-size:clamp(25px,6vw,40px)}header p{color:var(--muted);margin:6px}
+main{width:min(760px,92%);margin:0 auto 40px}.card{background:rgba(18,26,46,.94);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 12px 35px #0005}
+h2{margin:0 0 14px;font-size:20px}.field{margin:13px 0}label{display:block;color:var(--muted);font-size:14px;margin-bottom:7px}
+select,button{width:100%;padding:13px;border-radius:11px;border:1px solid var(--line);font:inherit}select{background:#0b1223;color:var(--text)}
+button{background:linear-gradient(90deg,#0bb9d7,#6376ff);color:white;font-weight:800;border:0;cursor:pointer;margin-top:8px}
+.result{display:none;background:#0b1223;border:1px solid var(--line);padding:14px;border-radius:12px;margin-top:14px}
+.values{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.value{background:#151f36;padding:12px;border-radius:10px}.value b{display:block;color:var(--cyan);font-size:21px}
+.small{font-size:13px;color:var(--muted);line-height:1.5}footer{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+</style>
+</head>
+<body>
+<header><div class="logo">🎯</div><h1>TUFAN SENSI GPT AI</h1><p>By Arif ZXTUFAN</p><p>Free Fire Sensitivity & HUD Helper</p></header>
+<main>
+<section class="card">
+<h2>🔥 Custom Sensitivity Generator</h2>
+<div class="field"><label for="phone">Phone performance</label><select id="phone"><option value="smooth">Normal / 60 FPS</option><option value="fast">High performance / 90 FPS</option><option value="basic">Low-end phone</option></select></div>
+<div class="field"><label for="style">Playing style</label><select id="style"><option value="balanced">Balanced</option><option value="rush">Rush / close range</option><option value="steady">Long range / steady aim</option></select></div>
+<button onclick="generate()">GENERATE MY SENSITIVITY</button>
+<div class="result" id="result"><h2>Your starter settings</h2><div class="values" id="values"></div><p class="small">These are starting suggestions, not guaranteed headshots or automatic phone analysis. Test in Training Ground and adjust by 2–5 points at a time.</p><button onclick="copySettings()">COPY SETTINGS</button></div>
+</section>
+<section class="card"><h2>🎮 Custom HUD Tips</h2><p class="small">2-finger: keep fire button easy to reach and use a comfortable button size. 3-finger: move fire button to the upper-left area if comfortable. 4-finger: keep movement, aim and fire controls separated. Adjust to your hand size and practice before ranked matches.</p></section>
+<section class="card"><h2>⚡ Phone Performance Tips</h2><ul class="small"><li>Close unused apps before playing.</li><li>Keep the phone cool; avoid playing while charging if it heats up.</li><li>Use a stable network and lower graphics if the game lags.</li><li>Use only in-game settings; this page does not modify game files.</li></ul></section>
+</main>
+<footer>Unofficial fan-made helper • Not affiliated with Garena Free Fire</footer>
+<script>
+let current='';
+function generate(){
+ const phone=document.getElementById('phone').value, style=document.getElementById('style').value;
+ let base=phone==='fast'?{g:190,r:185,2:180,4:170,s:155,f:100}:phone==='basic'?{g:175,r:170,2:165,4:155,s:140,f:95}:{g:185,r:180,2:175,4:165,s:150,f:100};
+ let d=style==='rush'?8:style==='steady'?-8:0;
+ let names=[['General','g'],['Red Dot','r'],['2x Scope','2'],['4x Scope','4'],['Sniper Scope','s'],['Free Look','f']];
+ current=names.map(([n,k])=>n+': '+Math.max(0,Math.min(200,base[k]+(k==='f'?0:d)))).join('\n');
+ document.getElementById('values').innerHTML=names.map(([n,k])=>'<div class="value">'+n+'<b>'+Math.max(0,Math.min(200,base[k]+(k==='f'?0:d)))+'</b></div>').join('');
+ document.getElementById('result').style.display='block';
+}
+function copySettings(){if(navigator.clipboard){navigator.clipboard.writeText(current).then(()=>alert('Settings copied!'));}else{alert(current);}}
+</script>
+</body></html>
